@@ -41,7 +41,7 @@ const Signin = () => {
         theme: "light",
         transition: Bounce,
         });
-        navigate('/Home')
+        navigate('/home')
     
 
   }
