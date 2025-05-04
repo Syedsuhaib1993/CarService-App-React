@@ -1,8 +1,9 @@
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { logonav } from "../images"; 
+import { Link } from "@heroui/link";
 
 
 export const AcmeLogo = () => {
@@ -36,17 +37,17 @@ export default function Mynavbar() {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="" href="/home">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem >
-          <Link aria-current="page" href="#">
+          <Link  href="#">
             Contact
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="" href="/about">
             About 
           </Link>
         </NavbarItem>
