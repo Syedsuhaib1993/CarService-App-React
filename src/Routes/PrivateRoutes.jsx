@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import Mynavbar from '../components/Mynavbar';
 
 const PrivateRoutes = () => {
-    const Auth = !!localStorage.getItem('sb-ypzjiqjrqsagqkvkczow-auth-token')
+    const Auth = !!localStorage.getItem('token')
     console.log(Auth);
     
   return Auth?<><Mynavbar/><Outlet/></>:<Navigate to='/signin'/>

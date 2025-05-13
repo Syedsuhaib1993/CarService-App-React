@@ -16,7 +16,7 @@ export default function MyDrawer() {
 
   return (
     <>
-      <Button onPress={onOpen}>Open Drawer</Button>
+      <Button className="mx-auto w-[10%] mt-8" onPress={onOpen}>Open Drawer</Button>
       <Drawer
         isDismissable={false}
         isKeyboardDismissDisabled={true}

@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../config/supabase.js';
 import Mytoast from '../components/Mytoast.jsx';
 import { Bounce, toast } from 'react-toastify';
+import { NavbarBrand } from '@heroui/navbar';
 const Signin = () => {
   
   const [email,setEmail] = useState('')
@@ -19,6 +20,22 @@ const Signin = () => {
       email: email,
       password: password,
     })
+    console.log(data);
+
+    const { data:userdata, error:usererror } = await supabase
+  .from('users')
+  .select()
+  .eq('uid',data.user.id)
+  .single()
+  console.log(userdata);
+  localStorage.setItem('token',data.session.access_token)  
+  localStorage.setItem('Role',userdata.role)
+  if(userdata.role === 'Vendor'){
+    navigate('/vendor')
+    
+  }else{
+    navigate('/home')
+  }
     error?toast.error('Failed', {
       position: "top-center",
       autoClose: 5000,
@@ -41,7 +58,8 @@ const Signin = () => {
         theme: "light",
         transition: Bounce,
         });
-        navigate('/home')
+
+    
     
 
   }

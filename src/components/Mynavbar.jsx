@@ -7,8 +7,6 @@ import { Link } from "@heroui/link";
 
 
 export const AcmeLogo = () => {
-    const login = !!localStorage.getItem('sb-ypzjiqjrqsagqkvkczow-auth-token')
-    console.log(login);
     
   return (
     // <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -24,9 +22,10 @@ export const AcmeLogo = () => {
 };
 
 export default function Mynavbar() {
+  const role = localStorage.getItem('Role')
   const Navigate = useNavigate() 
   const handlelogout = ()=>{
-    localStorage.removeItem('sb-ypzjiqjrqsagqkvkczow-auth-token')
+    localStorage.removeItem('token')
       Navigate('/signin')
   }
   return (
@@ -42,9 +41,11 @@ export default function Mynavbar() {
           </Link>
         </NavbarItem>
         <NavbarItem >
-          <Link  href="#">
-            Contact
-          </Link>
+          {role==='Vendor'?(<Link  href="/vendor">
+            Vendor
+          </Link>):(<Link  href="/Buyer">
+            Buy Now
+          </Link>)}
         </NavbarItem>
         <NavbarItem>
           <Link color="" href="/about">

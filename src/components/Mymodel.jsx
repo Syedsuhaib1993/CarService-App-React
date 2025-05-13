@@ -8,10 +8,10 @@ import MyForm from "./MyForm";
   
     return (
         
-      <div className="mx-auto w-[10%]">
+      <div className="mx-auto w-[10%] mt-8">
         <Button className="bg-orange-500 text-white" onPress={onOpen}>Add Product</Button>
         <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-          <ModalContent>
+          <ModalContent className="min-h-screen">
             {(onClose) => (
               <>
                 <ModalHeader className="flex flex-col gap-1 mx-auto text-xl">Add Car Details</ModalHeader>
